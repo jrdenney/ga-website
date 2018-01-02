@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>James's Adventures in Python</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+          <i class="fa fa-times"></i>
+        </a>
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#top">Start Bootstrap</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#top">Home</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#services">Services</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#portfolio">Code Portfolio</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="top">
+      <div class="text-vertical-center">
+        <h1>James's GitHub Blog</h1>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container text-center">
+        <h1>GA Capstone: College Football Rankings</h1>
+        <p class="lead">Last week Friday, I finished the full-throttle onslaught that was the Data Science Immersive at General Assembly. It was a hell of a ride, I learned a ton, and I immediately collapsed that night in bed and slept for ten hours because I’d pulled a 24-hour day to finish my capstone. The capstone was meant to encourage us to tackle a project about a subject we enjoy or find interesting. I spent quite a while debating between two ideas: one involving the DC Metro system, and one involving college football. I chose football.</p>
+        <p class="lead">I am a big, big college football fan. Unapologetically big, really — to the occasional consternation of my fiancée. We each name fall as our favorite season, for very different reasons: me for football and leaf colors, she for the festivals and weather and leaf colors.</p>
+        <p class="lead">It’s a balancing act familiar to many people across the country. Do you go to the social event or the local festival and enjoy the outdoors, or do you camp out in front of the television for three to twelve hours on a Saturday afternoon? Or do you finagle a balance of the two and risk missing the “Game of the Year”? The third case usually dominates my fall seasons, because not only do I enjoy watching games, both my fiancée and I play in social leagues around DC on the weekends. So either I miss a few TV games a season, or we miss out on dates to some admittedly pretty great festivals.</p>
+        <p class="lead">As much as I miss the actual games, what I don’t miss about those games is the continuous speculation by commentators and desk jockeys about the College Football Playoff.</p>
+        <p class="lead">For those not in the know, the College Football Playoff (CFP) began after the 2013 season. It replaced the Bowl Championship Series (BCS), which selected two teams to play for a national championship. The CFP ranks a Top 25 starting around Week 9 of the season, and updates them weekly. The top four teams at season’s end are seeded into a playoff.</p>
+        <p class="lead">What differs between the CFP and BCS goes beyond the number of teams in contention for the national championship. While the BCS incorporated computer and human poll rankings in its formula, the CFP uses a selection committee that:</p>
+        <p class="lead">"...ranks the teams based on the members’ evaluation of the teams’ performance on the field, using conference championships won, strength of schedule, head-to-head results, and comparison of results against common opponents to decide among teams that are comparable."</p>
+        <p class="lead">Now, I was no fan of the BCS, because human polls are entirely fallible. And while I am supportive of the playoff, I don’t appreciate vague selection criteria like “strength of schedule” or “evaluation of teams’ performance.” I tend to prefer cold, hard facts. Because of course I would. I’m a numbers guy. The committee, however, has no such obligation to look at advanced metrics, even though ESPN sends them plenty of theirs. This raises a question.</p>
+        <h2>What metrics ought to be considered indicative of a team’s success?</h2>
+        <p class="lead">That’s where my project kicked off. (…heh.) I have watched computer-based polls for years. Sagarin, Massey, you name it, I’ve probably seen it. I wondered for a long time how these pollsters created their polls, what they valued highly, what they didn’t, and all the elements of their polls. I also wondered what my own poll might look like should I create one.</p>
+        <p class="lead">Therefore, I took as my task the analysis and clarification of what metrics are indicative of a college team’s success. Using data courtesy of the user BlueSCar on Reddit, I performed exploratory analysis and then principal component analysis on an array of aggregated game statistics and team records and results.</p>
+        <p class="lead">The database contains game information, results, team statistics, and more, for over 700 teams from 2001 to the present. They’re organized into over a dozen tables in a SQL database. I loaded the tables I needed into Pandas DataFrames and got to work arranging year-by-year data into individual DataFrames. My focus was the past five seasons, mostly due to changes in college football offensively and the advent of the CFP. Game statistics were put into their own columns as lists, and averages were collated into a final DataFrame that contained average team statistics by year.</p>
+        <p class="lead">For instance, Auburn’s seasons between 2013 and now each have their own row in the DataFrame, with averages of each statistical category as their own column.</p>
+        <h2>Why principal component analysis?</h2>
+        <p class="lead">Principal component analysis (PCA) is a method in which variables are analyzed to determine how they contribute to the variance of some “target variable.” In this case, the result is a team’s winning percentage, and the variables of interest are statistics like average yards per rush, first downs per game, and opponents’ pass-run play ratio.</p>
+        <p class="lead">PCA helps us clear the fog of all these statistics, because yes, there are quite a few. Some are related to one another in some fashion: rushing yards, average yards per rush, and rushing attempts are related because total rushing yards is just yards per rush multiplied by rushing attempts. Some are stand-alone, like first downs per game, but intuitively we don’t necessarily know if these have any impact on the results.</p>
+        <p class="lead">All these statistics mean that our data isn’t easy to visualize. PCA improves our ability to visualize data by eliminating those stats that don’t have a significant impact on winning percentage. And, more importantly, PCA tells us something important. I can’t tell which statistics contribute the most to the difference in teams’ winning percentages just by looking at the data tables. With PCA, not only can I see which stat explains the biggest share of the spread, I can see the second-most-important, and the third, and the fourth, and so on.</p>
+        <p class="lead">(The tricky part about PCA is that if a single statistic has a large variance, the algorithm assumes that the statistic is a more important component than a statistic with a small variance.)</p>
+        <p class="lead">To check out the results, look at the presentation and GitHub repository below. My analysis is in the Capstone_Analysis Jupyter notebook.</p>
+        <p class="lead"><a href="https://docs.google.com/presentation/d/1FB48mMybH1CuvLo2DFZK0MDpnQ_2weN6mljx7rwQb9k/edit?usp=sharing">PowerPoint Slides</a></p>
+        <p class="lead"><a href="https://github.com/jrdenney/ga-capstone">GitHub Repository</a></p>
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <!-- Map -->
+    <!--<section id="contact" class="map">
+      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+      <br/>
+      <small>
+        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+      </small>
+    </section>>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center">
+            <h4>
+              <strong>James Denney</strong>
+            </h4>
+            <p>General Assembly
+              <br>1133 15th St. NW Floor 8
+              <br>Washington, D.C. 20005</p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa fa-phone fa-fw"></i>
+                (301) 466-3165</li>
+              <li>
+                <i class="fa fa-envelope-o fa-fw"></i>
+                <a href="mailto:jamesdenney6@gmail.com">jamesdenney6@gmail.com</a>
+              </li>
+            </ul>
+            <br>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook fa-fw fa-3x"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter fa-fw fa-3x"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-dribbble fa-fw fa-3x"></i>
+                </a>
+              </li>
+            </ul>
+            <hr class="small">
+            <p class="text-muted">Copyright &copy; James's GitHub Site 2017</p>
+          </div>
+        </div>
+      </div>
+      <a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
+        <i class="fa fa-chevron-up fa-fw fa-1x"></i>
+      </a>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/stylish-portfolio.js"></script>
+
+  </body>
+
+</html>
