@@ -30,6 +30,28 @@ body {
     padding: 0;
 }
 
+.text-vertical-center h1 span {
+    font-size: 4.5em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.text-vertical-center h3 {
+    font-size: 3em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.text-vertical-center h3 span {
+    font-size: 3em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
 
 /* Custom Button Styles */
 
