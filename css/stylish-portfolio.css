@@ -24,15 +24,15 @@ body {
 }
 
 .text-vertical-center h1 {
-    font-size: 4.5em;
-    font-weight: 700;
+    font-size: 4em;
+    font-weight: 600;
     margin: 0;
     padding: 0;
 }
 
 .text-vertical-center h1 span {
-    font-size: 4.5em;
-    font-weight: 700;
+    font-size: 4em;
+    font-weight: 600;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -40,14 +40,14 @@ body {
 
 .text-vertical-center h3 {
     font-size: 3em;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     padding: 0;
 }
 
 .text-vertical-center h3 span {
     font-size: 3em;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     padding: 0;
     background-color: white;
