@@ -30,14 +30,7 @@ body {
 
 .text-vertical-center h1 {
     font-size: 3em;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-}
-
-.text-vertical-center h1 span {
-    font-size: 3em;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     padding: 0;
 }
@@ -49,12 +42,6 @@ body {
     padding: 0;
 }
 
-.text-vertical-center h3 span {
-    font-size: 2em;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-}
 
 /* Custom Button Styles */
 
