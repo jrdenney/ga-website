@@ -11833,6 +11833,9 @@ div#notebook {
         <a class="js-scroll-trigger" href="#Show-performance">Network Performance</a>
       </li>
       <li>
+        <a class="js-scroll-trigger" href="#featured">Featured Work</a>
+      </li>
+      <li>
         <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact James</a>
       </li>
     </ul>
@@ -11969,7 +11972,8 @@ div#notebook {
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
-<div id="Building-a-Network" class="text_cell_render border-box-sizing rendered_html">
+<section id="Building-a-Network">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Problem 6</strong>: Build the neural network from your work in Problem 5 here.</p>
 <p>A few things to keep in mind:</p>
 <ul>
@@ -11982,6 +11986,7 @@ div#notebook {
 <p>Check out the <a href="https://git.generalassemb.ly/DSI-DC-5/5.09-neural-networks-i/blob/master/5.09-neural-networks-i.ipynb">Neural Networks I notes</a> for an implementation in NumPy; you should be able to use this as a starting point for your model.</p>
 
 </div>
+</section>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -12396,10 +12401,12 @@ $$<ul>
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
-<div id="Show-performance" class="text_cell_render border-box-sizing rendered_html">
+<section id="Show-performance">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>To assess the performance of the neural network predictions, we use mean squared error. The equation is given above, and I separated it into two steps to ensure accuracy. The first step calculates the differences squared (the $(\hat{y}-y)^2$ term), using predicted values for $\hat{y}$ and actual values for $y$. The second step sums these squares and divides by the length of the predictions/actuals.</p>
 
 </div>
+</section>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
