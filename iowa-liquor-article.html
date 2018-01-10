@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Project</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Iowa Liquor Sales Project</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11732,14 +11732,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -11770,6 +11770,55 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+  <!-- Navigation -->
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+    <i class="fa fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+        <i class="fa fa-times"></i>
+      </a>
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#top">James Denney</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="https://jrdenney.github.io/ga-website/">Home</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#Getting-started">Getting Started</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#Explore-the-data">Data Exploration</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#Record-your-findings">Record Findings</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="Mine-the-data">Data Mining</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="Refine-the-data">Refine Data</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="Plot-your-results">Plot Results</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="Executive-Summary">Executive Summary</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact James</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="text-vertical-center">
+        <h1><a href="https://jrdenney.github.io/ga-website/">James Denney</a></h1>
+        <h3>Data Scientist</h3>
+    </div>
+  </header>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11778,7 +11827,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Getting-started">Getting started<a class="anchor-link" href="#Getting-started">&#182;</a></h1><p>Once you've chosen your scenario, download the data from the Iowa website in csv format. Start by loading the data with pandas. You may need to parse the date columns appropriately.</p>
+<h1 id="Getting-started">Getting Started<a class="anchor-link" href="#Getting-started">&#182;</a></h1><p>Once you've chosen your scenario, download the data from the Iowa website in csv format. Start by loading the data with pandas. You may need to parse the date columns appropriately.</p>
 
 </div>
 </div>
@@ -11814,8 +11863,8 @@ div#notebook {
 5) Report increase/decrease in sales statewide.
 6) Cross-validation using one of the CV methods.
 7) Regularize the models with Ridge or Lasso. Try them again and explain what's going on.
-8) 
-9) 
+8)
+9)
 10)</p>
 
 </div>
@@ -12333,36 +12382,36 @@ div#notebook {
 
 <span class="k">def</span> <span class="nf">doEDA</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
     <span class="c1"># Shamelessly yoinked from Ritika Bashker and Chris Messier</span>
-    
+
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataframe shape: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># prints the dataframe size/shape</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dataframe types: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span> <span class="c1"># prints datatypes in each column</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dataframe index: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># prints range index</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dataframe missing values: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="c1"># shows missing values per column, if any</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dataframe header: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># shows first ten rows of dataframe</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dataframe unique indices: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># shows number of unique values in each column</span>
-    
+
     <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">:</span> <span class="c1"># prints number of unique entries in each column</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
-    
+
     <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># if there&#39;s only one unique value, there&#39;s no point plotting it</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{}</span><span class="s2"> is homogenous&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="p">))</span>
             <span class="k">continue</span>
-        
+
         <span class="k">if</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">==</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">():</span>
             <span class="c1"># if each item in the column occurs only once, there&#39;s also no point plotting it</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All items in </span><span class="si">{}</span><span class="s2"> are unique.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="p">))</span>
             <span class="k">continue</span>
-        
+
         <span class="k">if</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]:</span>
             <span class="c1"># if it&#39;s a numerical column, plot its distribution</span>
             <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
         <span class="k">elif</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">object</span><span class="p">,</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">]:</span>
             <span class="c1"># if it&#39;s a categorical column, plot its histogram</span>
             <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
-    
+
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">doEDA</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -12380,10 +12429,10 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dataframe shape: 
+<pre>Dataframe shape:
  (2709552, 18)
 
-Dataframe types: 
+Dataframe types:
  Date            datetime64[ns]
 StoreNo                  int64
 City                    object
@@ -12404,10 +12453,10 @@ VolSoldL               float64
 VolSoldG               float64
 dtype: object
 
-Dataframe index: 
+Dataframe index:
  RangeIndex(start=0, stop=2709552, step=1)
 
-Dataframe missing values: 
+Dataframe missing values:
  Date                0
 StoreNo             0
 City                0
@@ -12428,56 +12477,56 @@ VolSoldL            0
 VolSoldG            0
 dtype: int64
 
-Dataframe header: 
+Dataframe header:
          Date  StoreNo          City Zipcode  CountyNo      County   Category  \
-0 2015-11-20     2191        KEOKUK   52632      56.0         Lee  1000000.0   
-1 2015-11-21     2205      CLARINDA   51632      73.0        Page  1000000.0   
-2 2015-11-16     3549  FORT MADISON   52627      56.0         Lee  1000000.0   
-3 2015-11-04     2513     IOWA CITY   52240      52.0     Johnson  1000000.0   
-4 2015-11-17     3942        TOLEDO   52342      86.0        Tama  1000000.0   
-5 2015-11-11     3650      HOLSTEIN   51025      47.0         Ida  1000000.0   
-6 2015-11-09     2538      WATERLOO   50702       7.0  Black Hawk  1701100.0   
-7 2015-11-10     3942        TOLEDO   52342      86.0        Tama  1000000.0   
-8 2015-11-30     2662     MUSCATINE   52761      70.0   Muscatine  1701100.0   
-9 2015-11-16     4307        DUNLAP   712-2      43.0    Harrison  1000000.0   
+0 2015-11-20     2191        KEOKUK   52632      56.0         Lee  1000000.0
+1 2015-11-21     2205      CLARINDA   51632      73.0        Page  1000000.0
+2 2015-11-16     3549  FORT MADISON   52627      56.0         Lee  1000000.0
+3 2015-11-04     2513     IOWA CITY   52240      52.0     Johnson  1000000.0
+4 2015-11-17     3942        TOLEDO   52342      86.0        Tama  1000000.0
+5 2015-11-11     3650      HOLSTEIN   51025      47.0         Ida  1000000.0
+6 2015-11-09     2538      WATERLOO   50702       7.0  Black Hawk  1701100.0
+7 2015-11-10     3942        TOLEDO   52342      86.0        Tama  1000000.0
+8 2015-11-30     2662     MUSCATINE   52761      70.0   Muscatine  1701100.0
+9 2015-11-16     4307        DUNLAP   712-2      43.0    Harrison  1000000.0
 
                      CategoryName  VendorNo  ItemNo  \
-0                           OTHER       255     297   
-1                           OTHER       255     297   
-2                           OTHER       130     249   
-3                           OTHER        65     237   
-4                           OTHER       130     249   
-5                           OTHER        65     237   
-6  DECANTERS &amp; SPECIALTY PACKAGES       962     238   
-7                           OTHER        65     237   
-8  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-9                           OTHER       130     249   
+0                           OTHER       255     297
+1                           OTHER       255     297
+2                           OTHER       130     249
+3                           OTHER        65     237
+4                           OTHER       130     249
+5                           OTHER        65     237
+6  DECANTERS &amp; SPECIALTY PACKAGES       962     238
+7                           OTHER        65     237
+8  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+9                           OTHER       130     249
 
                                         ItemDesc  BottleVolML  StateCost  \
-0                          Templeton Rye w/Flask          750      18.09   
-1                          Templeton Rye w/Flask          750      18.09   
-2  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
-3                 Knob Creek w/ Crystal Decanter         1750      35.55   
-4  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
-5                 Knob Creek w/ Crystal Decanter         1750      35.55   
-6                   Forbidden Secret Coffee Pack         1500      11.62   
-7                 Knob Creek w/ Crystal Decanter         1750      35.55   
-8                    Laphroaig w/ Whiskey Stones          750      19.58   
-9  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
+0                          Templeton Rye w/Flask          750      18.09
+1                          Templeton Rye w/Flask          750      18.09
+2  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
+3                 Knob Creek w/ Crystal Decanter         1750      35.55
+4  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
+5                 Knob Creek w/ Crystal Decanter         1750      35.55
+6                   Forbidden Secret Coffee Pack         1500      11.62
+7                 Knob Creek w/ Crystal Decanter         1750      35.55
+8                    Laphroaig w/ Whiskey Stones          750      19.58
+9  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
 
-   StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-0        27.14            6       162.84      4.50      1.19  
-1        27.14           12       325.68      9.00      2.38  
-2         9.60            2        19.20      0.30      0.08  
-3        53.34            3       160.02      5.25      1.39  
-4         9.60            2        19.20      0.30      0.08  
-5        53.34            1        53.34      1.75      0.46  
-6        17.43            6       104.58      9.00      2.38  
-7        53.34            2       106.68      3.50      0.92  
-8        29.37            4       117.48      3.00      0.79  
-9         9.60            2        19.20      0.30      0.08  
+   StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG
+0        27.14            6       162.84      4.50      1.19
+1        27.14           12       325.68      9.00      2.38
+2         9.60            2        19.20      0.30      0.08
+3        53.34            3       160.02      5.25      1.39
+4         9.60            2        19.20      0.30      0.08
+5        53.34            1        53.34      1.75      0.46
+6        17.43            6       104.58      9.00      2.38
+7        53.34            2       106.68      3.50      0.92
+8        29.37            4       117.48      3.00      0.79
+9         9.60            2        19.20      0.30      0.08
 
-Dataframe unique indices: 
+Dataframe unique indices:
 
 Date
 284
@@ -16524,14 +16573,14 @@ k4KZmRWcFMzMrOCkYGZmBScFMzMr/B+GomLp9q+kYQAAAABJRU5ErkJggg==
 <span class="n">mm</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">while</span> <span class="n">monthly</span> <span class="o">&lt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2016-04-01&#39;</span><span class="p">):</span>
-    
+
     <span class="n">monthlysales</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">monthly</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">monthly</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)))]</span>
     <span class="n">saleByMth</span><span class="p">[</span><span class="n">mm</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">mm</span><span class="p">,</span> <span class="n">monthlysales</span><span class="p">[</span><span class="s2">&quot;SaleDollars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span>
     <span class="n">titlestring</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sales For Range &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">monthly</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">monthly</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">titlestring</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">monthlysales</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Sales (USD): $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">monthlysales</span><span class="p">[</span><span class="s2">&quot;SaleDollars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+
     <span class="n">mm</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">monthly</span> <span class="o">+=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -16552,32 +16601,32 @@ k4KZmRWcFMzMrOCkYGZmBScFMzMr/B+GomLp9q+kYQAAAABJRU5ErkJggg==
 Sales For Range 2015-01-01 00:00:00 to 2015-02-01 00:00:00:
 
           Date  StoreNo            City Zipcode  CountyNo         County  \
-100 2015-01-26     4742  COUNCIL BLUFFS   51501      78.0  Pottawattamie   
-107 2015-01-15     4969      CLEAR LAKE   50428      17.0    Cerro Gordo   
-111 2015-01-12     4659          CONRAD   50621      38.0         Grundy   
-144 2015-01-07     4705      CORALVILLE   52241      52.0        Johnson   
-156 2015-01-20     4891          SIBLEY   51249      72.0        Osceola   
+100 2015-01-26     4742  COUNCIL BLUFFS   51501      78.0  Pottawattamie
+107 2015-01-15     4969      CLEAR LAKE   50428      17.0    Cerro Gordo
+111 2015-01-12     4659          CONRAD   50621      38.0         Grundy
+144 2015-01-07     4705      CORALVILLE   52241      52.0        Johnson
+156 2015-01-20     4891          SIBLEY   51249      72.0        Osceola
 
       Category                      CategoryName  VendorNo  ItemNo  \
-100  1062200.0  PUERTO RICO &amp; VIRGIN ISLANDS RUM        35   43128   
-107  1012210.0                SINGLE MALT SCOTCH       305    5486   
-111  1031080.0                    VODKA 80 PROOF       260   37991   
-144  1011100.0                  BLENDED WHISKIES        65   22788   
-156  1011500.0             STRAIGHT RYE WHISKIES       255   27102   
+100  1062200.0  PUERTO RICO &amp; VIRGIN ISLANDS RUM        35   43128
+107  1012210.0                SINGLE MALT SCOTCH       305    5486
+111  1031080.0                    VODKA 80 PROOF       260   37991
+144  1011100.0                  BLENDED WHISKIES        65   22788
+156  1011500.0             STRAIGHT RYE WHISKIES       255   27102
 
                               ItemDesc  BottleVolML  StateCost  StateRetail  \
-100               Bacardi Superior Rum         1750      15.00        22.50   
-107  Macallan 12 Yr Single Malt Scotch          750      30.07        45.11   
-111         Smirnoff Vodka 80 Prf Mini          500       7.47        11.21   
-144           Beam&#39;s 8 Star Bl Whiskey         1750       7.43        11.15   
-156                      Templeton Rye          750      18.09        27.14   
+100               Bacardi Superior Rum         1750      15.00        22.50
+107  Macallan 12 Yr Single Malt Scotch          750      30.07        45.11
+111         Smirnoff Vodka 80 Prf Mini          500       7.47        11.21
+144           Beam&#39;s 8 Star Bl Whiskey         1750       7.43        11.15
+156                      Templeton Rye          750      18.09        27.14
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-100           12       270.00     21.00      5.55  
-107            3       135.33      2.25      0.59  
-111            1        11.21      0.50      0.13  
-144            6        66.90     10.50      2.77  
-156            6       162.84      4.50      1.19  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+100           12       270.00     21.00      5.55
+107            3       135.33      2.25      0.59
+111            1        11.21      0.50      0.13
+144            6        66.90     10.50      2.77
+156            6       162.84      4.50      1.19
 
 Total Sales (USD): $18498508.310002387
 
@@ -16586,32 +16635,32 @@ Total Sales (USD): $18498508.310002387
 Sales For Range 2015-02-01 00:00:00 to 2015-03-01 00:00:00:
 
           Date  StoreNo          City Zipcode  CountyNo       County  \
-109 2015-02-12     4269        TIPTON   52772      16.0        Cedar   
-114 2015-02-03     2660  SIOUX CENTER   51250      84.0        Sioux   
-151 2015-02-24     4899   GRAETTINGER   51342      74.0    Palo Alto   
-170 2015-02-12     4091    CLEAR LAKE   50428      17.0  Cerro Gordo   
-176 2015-02-16     5081      ATLANTIC   50022      15.0         Cass   
+109 2015-02-12     4269        TIPTON   52772      16.0        Cedar
+114 2015-02-03     2660  SIOUX CENTER   51250      84.0        Sioux
+151 2015-02-24     4899   GRAETTINGER   51342      74.0    Palo Alto
+170 2015-02-12     4091    CLEAR LAKE   50428      17.0  Cerro Gordo
+176 2015-02-16     5081      ATLANTIC   50022      15.0         Cass
 
       Category       CategoryName  VendorNo  ItemNo  \
-109  1012100.0  CANADIAN WHISKIES        65   10626   
-114  1031080.0     VODKA 80 PROOF       421   36978   
-151  1031080.0     VODKA 80 PROOF       297   35918   
-170  1031080.0     VODKA 80 PROOF       260   38008   
-176  1081200.0     CREAM LIQUEURS       260   68034   
+109  1012100.0  CANADIAN WHISKIES        65   10626
+114  1031080.0     VODKA 80 PROOF       421   36978
+151  1031080.0     VODKA 80 PROOF       297   35918
+170  1031080.0     VODKA 80 PROOF       260   38008
+176  1081200.0     CREAM LIQUEURS       260   68034
 
                           ItemDesc  BottleVolML  StateCost  StateRetail  \
-109           Canadian Club Whisky          750       7.88        11.82   
-114                  Nikolai Vodka         1750       6.92        10.38   
-151             Five O&#39;clock Vodka         1750       7.20        10.80   
-170      Smirnoff Vodka 80 Prf Pet         1750      14.75        22.13   
-176  Bailey&#39;s Original Irish Cream          375       7.00        10.50   
+109           Canadian Club Whisky          750       7.88        11.82
+114                  Nikolai Vodka         1750       6.92        10.38
+151             Five O&#39;clock Vodka         1750       7.20        10.80
+170      Smirnoff Vodka 80 Prf Pet         1750      14.75        22.13
+176  Bailey&#39;s Original Irish Cream          375       7.00        10.50
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-109            5        59.10      3.75      0.99  
-114            2        20.76      3.50      0.92  
-151            6        64.80     10.50      2.77  
-170            6       132.78     10.50      2.77  
-176            3        31.50      1.12      0.30  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+109            5        59.10      3.75      0.99
+114            2        20.76      3.50      0.92
+151            6        64.80     10.50      2.77
+170            6       132.78     10.50      2.77
+176            3        31.50      1.12      0.30
 
 Total Sales (USD): $21224352.410002
 
@@ -16620,32 +16669,32 @@ Total Sales (USD): $21224352.410002
 Sales For Range 2015-03-01 00:00:00 to 2015-04-01 00:00:00:
 
           Date  StoreNo           City Zipcode  CountyNo      County  \
-106 2015-03-12     4847      LE CLAIRE   52753      82.0       Scott   
-117 2015-03-26     5102   MOUNT VERNON   52314      57.0        Linn   
-122 2015-03-24     3626        SPENCER   51301      21.0        Clay   
-153 2015-03-25     2536  PLEASANT HILL   50317      77.0        Polk   
-155 2015-03-12     2106    CEDAR FALLS   50613       7.0  Black Hawk   
+106 2015-03-12     4847      LE CLAIRE   52753      82.0       Scott
+117 2015-03-26     5102   MOUNT VERNON   52314      57.0        Linn
+122 2015-03-24     3626        SPENCER   51301      21.0        Clay
+153 2015-03-25     2536  PLEASANT HILL   50317      77.0        Polk
+155 2015-03-12     2106    CEDAR FALLS   50613       7.0  Black Hawk
 
       Category               CategoryName  VendorNo  ItemNo  \
-106  1011200.0  STRAIGHT BOURBON WHISKIES        65   19061   
-117  1042100.0          IMPORTED DRY GINS       260   28890   
-122  1012100.0          CANADIAN WHISKIES       434   13038   
-153  1012210.0         SINGLE MALT SCOTCH        65    5446   
-155  1062310.0                 SPICED RUM       240   45887   
+106  1011200.0  STRAIGHT BOURBON WHISKIES        65   19061
+117  1042100.0          IMPORTED DRY GINS       260   28890
+122  1012100.0          CANADIAN WHISKIES       434   13038
+153  1012210.0         SINGLE MALT SCOTCH        65    5446
+155  1062310.0                 SPICED RUM       240   45887
 
                                ItemDesc  BottleVolML  StateCost  StateRetail  \
-106                       Jim Beam Mini          500       6.83        10.25   
-117               Tanqueray Rangpur Gin          750      12.50        18.75   
-122             Canadian Reserve Whisky         1750       9.00        13.50   
-153  Laphroaig 10 Yr Single Malt Scotch          750      26.24        39.36   
-155        Sailor Jerry Spiced Navy Rum         1000      11.78        17.67   
+106                       Jim Beam Mini          500       6.83        10.25
+117               Tanqueray Rangpur Gin          750      12.50        18.75
+122             Canadian Reserve Whisky         1750       9.00        13.50
+153  Laphroaig 10 Yr Single Malt Scotch          750      26.24        39.36
+155        Sailor Jerry Spiced Navy Rum         1000      11.78        17.67
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-106            1        10.25      0.50      0.13  
-117            3        56.25      2.25      0.59  
-122           18       243.00     31.50      8.32  
-153            1        39.36      0.75      0.20  
-155           12       212.04     12.00      3.17  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+106            1        10.25      0.50      0.13
+117            3        56.25      2.25      0.59
+122           18       243.00     31.50      8.32
+153            1        39.36      0.75      0.20
+155           12       212.04     12.00      3.17
 
 Total Sales (USD): $23262369.710002135
 
@@ -16654,32 +16703,32 @@ Total Sales (USD): $23262369.710002135
 Sales For Range 2015-04-01 00:00:00 to 2015-05-01 00:00:00:
 
           Date  StoreNo         City Zipcode  CountyNo     County   Category  \
-116 2015-04-06     4673   WEST POINT   52656      56.0        Lee  1081600.0   
-123 2015-04-13     2591     ATLANTIC   50022      15.0       Cass  1081390.0   
-136 2015-04-28     4277      LE MARS   51031      75.0   Plymouth  1062310.0   
-146 2015-04-15     4073  FOREST CITY   50436      95.0  Winnebago  1011200.0   
-150 2015-04-14     5133  ORANGE CITY   51041      84.0      Sioux  1011200.0   
+116 2015-04-06     4673   WEST POINT   52656      56.0        Lee  1081600.0
+123 2015-04-13     2591     ATLANTIC   50022      15.0       Cass  1081390.0
+136 2015-04-28     4277      LE MARS   51031      75.0   Plymouth  1062310.0
+146 2015-04-15     4073  FOREST CITY   50436      95.0  Winnebago  1011200.0
+150 2015-04-14     5133  ORANGE CITY   51041      84.0      Sioux  1011200.0
 
                   CategoryName  VendorNo  ItemNo  \
-116            WHISKEY LIQUEUR       421   64866   
-123          IMPORTED SCHNAPPS       421   69636   
-136                 SPICED RUM       478   42230   
-146  STRAIGHT BOURBON WHISKIES        55   21597   
-150  STRAIGHT BOURBON WHISKIES        65   19066   
+116            WHISKEY LIQUEUR       421   64866
+123          IMPORTED SCHNAPPS       421   69636
+136                 SPICED RUM       478   42230
+146  STRAIGHT BOURBON WHISKIES        55   21597
+150  STRAIGHT BOURBON WHISKIES        65   19066
 
                                ItemDesc  BottleVolML  StateCost  StateRetail  \
-116           Fireball Cinnamon Whiskey          750       8.98        13.47   
-123  Dr. Mcgillicuddy&#39;s Cherry Schnapps          750       8.67        13.01   
-136                 Sugar Island Spiced          750      10.00        15.00   
-146                            Ten High         1000       4.94         7.41   
-150                            Jim Beam          750      10.49        15.74   
+116           Fireball Cinnamon Whiskey          750       8.98        13.47
+123  Dr. Mcgillicuddy&#39;s Cherry Schnapps          750       8.67        13.01
+136                 Sugar Island Spiced          750      10.00        15.00
+146                            Ten High         1000       4.94         7.41
+150                            Jim Beam          750      10.49        15.74
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-116           24       323.28     18.00      4.76  
-123           12       156.12      9.00      2.38  
-136            1        15.00      0.75      0.20  
-146           12        88.92     12.00      3.17  
-150           12       188.88      9.00      2.38  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+116           24       323.28     18.00      4.76
+123           12       156.12      9.00      2.38
+136            1        15.00      0.75      0.20
+146           12        88.92     12.00      3.17
+150           12       188.88      9.00      2.38
 
 Total Sales (USD): $22857263.330001008
 
@@ -16688,32 +16737,32 @@ Total Sales (USD): $22857263.330001008
 Sales For Range 2015-05-01 00:00:00 to 2015-06-01 00:00:00:
 
           Date  StoreNo             City Zipcode  CountyNo      County  \
-105 2015-05-07     4958      CEDAR FALLS   50613       7.0  Black Hawk   
-132 2015-05-20     2500             AMES   50010      85.0       Story   
-137 2015-05-27     4860     CEDAR RAPIDS   52404      57.0        Linn   
-138 2015-05-05     3400       DES MOINES   50317      77.0        Polk   
-159 2015-05-12     3420  WINDSOR HEIGHTS   50311      77.0        Polk   
+105 2015-05-07     4958      CEDAR FALLS   50613       7.0  Black Hawk
+132 2015-05-20     2500             AMES   50010      85.0       Story
+137 2015-05-27     4860     CEDAR RAPIDS   52404      57.0        Linn
+138 2015-05-05     3400       DES MOINES   50317      77.0        Polk
+159 2015-05-12     3420  WINDSOR HEIGHTS   50311      77.0        Polk
 
       Category       CategoryName  VendorNo  ItemNo  \
-105  1081600.0    WHISKEY LIQUEUR       259   86796   
-132  1012100.0  CANADIAN WHISKIES        55   11936   
-137  1081600.0    WHISKEY LIQUEUR       421   64858   
-138  1031080.0     VODKA 80 PROOF       260   38006   
-159  1081330.0     PEACH SCHNAPPS        65   82847   
+105  1081600.0    WHISKEY LIQUEUR       259   86796
+132  1012100.0  CANADIAN WHISKIES        55   11936
+137  1081600.0    WHISKEY LIQUEUR       421   64858
+138  1031080.0     VODKA 80 PROOF       260   38006
+159  1081330.0     PEACH SCHNAPPS        65   82847
 
                                      ItemDesc  BottleVolML  StateCost  \
-105             Southern Host Whiskey Liqueur          750       4.87   
-132      Canadian Ltd Whisky Convenience Pack          750       4.34   
-137  Fireball Cinnamon Whiskey Mini Dispenser         3000      29.72   
-138                  Smirnoff Vodka Traveller          750       8.25   
-159                        Dekuyper Peachtree         1000       7.62   
+105             Southern Host Whiskey Liqueur          750       4.87
+132      Canadian Ltd Whisky Convenience Pack          750       4.34
+137  Fireball Cinnamon Whiskey Mini Dispenser         3000      29.72
+138                  Smirnoff Vodka Traveller          750       8.25
+159                        Dekuyper Peachtree         1000       7.62
 
-     StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-105         7.56            3        22.68      2.25      0.59  
-132         6.51            3        19.53      2.25      0.59  
-137        44.58            1        44.58      3.00      0.79  
-138        12.38           12       148.56      9.00      2.38  
-159        11.43           12       137.16     12.00      3.17  
+     StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG
+105         7.56            3        22.68      2.25      0.59
+132         6.51            3        19.53      2.25      0.59
+137        44.58            1        44.58      3.00      0.79
+138        12.38           12       148.56      9.00      2.38
+159        11.43           12       137.16     12.00      3.17
 
 Total Sales (USD): $22437370.96000174
 
@@ -16722,32 +16771,32 @@ Total Sales (USD): $22437370.96000174
 Sales For Range 2015-06-01 00:00:00 to 2015-07-01 00:00:00:
 
           Date  StoreNo            City Zipcode  CountyNo         County  \
-102 2015-06-09     2666          ANKENY   50023      77.0           Polk   
-119 2015-06-08     4312  COUNCIL BLUFFS   51501      78.0  Pottawattamie   
-121 2015-06-03     5025    CEDAR RAPIDS   52403      57.0           Linn   
-154 2015-06-29     2657         BEDFORD   50833      87.0         Taylor   
-163 2015-06-01     2512       IOWA CITY   52240      52.0        Johnson   
+102 2015-06-09     2666          ANKENY   50023      77.0           Polk
+119 2015-06-08     4312  COUNCIL BLUFFS   51501      78.0  Pottawattamie
+121 2015-06-03     5025    CEDAR RAPIDS   52403      57.0           Linn
+154 2015-06-29     2657         BEDFORD   50833      87.0         Taylor
+163 2015-06-01     2512       IOWA CITY   52240      52.0        Johnson
 
       Category                        CategoryName  VendorNo  ItemNo  \
-102  1081900.0  MISC. AMERICAN CORDIALS &amp; LIQUEURS       259   76478   
-119  1081600.0                     WHISKEY LIQUEUR       421   64864   
-121  1052010.0             IMPORTED GRAPE BRANDIES       389   49189   
-154  1081010.0                   AMERICAN AMARETTO       434   76486   
-163  1011100.0                    BLENDED WHISKIES       260   25616   
+102  1081900.0  MISC. AMERICAN CORDIALS &amp; LIQUEURS       259   76478
+119  1081600.0                     WHISKEY LIQUEUR       421   64864
+121  1052010.0             IMPORTED GRAPE BRANDIES       389   49189
+154  1081010.0                   AMERICAN AMARETTO       434   76486
+163  1011100.0                    BLENDED WHISKIES       260   25616
 
                        ItemDesc  BottleVolML  StateCost  StateRetail  \
-102    Pama Pomegranate Liqueur          750       8.83        13.75   
-119    Fireball Cinnamon Whisky          375       5.33         8.00   
-121     Remy Martin Vsop Cognac          200       5.70         8.55   
-154          Paramount Amaretto          750       3.38         5.07   
-163  Seagrams 7 Crown Pet Flask          750       7.00        10.50   
+102    Pama Pomegranate Liqueur          750       8.83        13.75
+119    Fireball Cinnamon Whisky          375       5.33         8.00
+121     Remy Martin Vsop Cognac          200       5.70         8.55
+154          Paramount Amaretto          750       3.38         5.07
+163  Seagrams 7 Crown Pet Flask          750       7.00        10.50
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-102            2        27.50      1.50      0.40  
-119           48       384.00     18.00      4.76  
-121           24       205.20      4.80      1.27  
-154            1         5.07      0.75      0.20  
-163           12       126.00      9.00      2.38  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+102            2        27.50      1.50      0.40
+119           48       384.00     18.00      4.76
+121           24       205.20      4.80      1.27
+154            1         5.07      0.75      0.20
+163           12       126.00      9.00      2.38
 
 Total Sales (USD): $27089683.13000052
 
@@ -16756,32 +16805,32 @@ Total Sales (USD): $27089683.13000052
 Sales For Range 2015-07-01 00:00:00 to 2015-08-01 00:00:00:
 
           Date  StoreNo        City Zipcode  CountyNo      County   Category  \
-112 2015-07-09     3647     CLINTON   52732      23.0     Clinton  1031080.0   
-115 2015-07-22     2500        AMES   50010      85.0       Story  1012200.0   
-124 2015-07-07     2607  SHENANDOAH   51601      73.0        Page  1031100.0   
-131 2015-07-15     2551    CHARITON   50049      59.0       Lucas  1012300.0   
-134 2015-07-27     3494    WATERLOO   50702       7.0  Black Hawk  1022100.0   
+112 2015-07-09     3647     CLINTON   52732      23.0     Clinton  1031080.0
+115 2015-07-22     2500        AMES   50010      85.0       Story  1012200.0
+124 2015-07-07     2607  SHENANDOAH   51601      73.0        Page  1031100.0
+131 2015-07-15     2551    CHARITON   50049      59.0       Lucas  1012300.0
+134 2015-07-27     3494    WATERLOO   50702       7.0  Black Hawk  1022100.0
 
         CategoryName  VendorNo  ItemNo                     ItemDesc  \
-112   VODKA 80 PROOF       301   38178         Titos Handmade Vodka   
-115  SCOTCH WHISKIES       260    6196               Talisker Storm   
-124  100 PROOF VODKA       300   36887              McCormick Vodka   
-131   IRISH WHISKIES       370   15621                 Jameson Mini   
-134          TEQUILA       421  988063  Members Mark Silver Tequila   
+112   VODKA 80 PROOF       301   38178         Titos Handmade Vodka
+115  SCOTCH WHISKIES       260    6196               Talisker Storm
+124  100 PROOF VODKA       300   36887              McCormick Vodka
+131   IRISH WHISKIES       370   15621                 Jameson Mini
+134          TEQUILA       421  988063  Members Mark Silver Tequila
 
      BottleVolML  StateCost  StateRetail  BottlesSold  SaleDollars  VolSoldL  \
-112         1750      18.52        27.78            6       166.68     10.50   
-115          750      34.49        51.74            1        51.74      0.75   
-124         1000       4.13         6.20           12        74.40     12.00   
-131          600      11.88        17.82            1        17.82      0.60   
-134         1750      13.58        20.37          336      6844.32    588.00   
+112         1750      18.52        27.78            6       166.68     10.50
+115          750      34.49        51.74            1        51.74      0.75
+124         1000       4.13         6.20           12        74.40     12.00
+131          600      11.88        17.82            1        17.82      0.60
+134         1750      13.58        20.37          336      6844.32    588.00
 
-     VolSoldG  
-112      2.77  
-115      0.20  
-124      3.17  
-131      0.16  
-134    155.33  
+     VolSoldG
+112      2.77
+115      0.20
+124      3.17
+131      0.16
+134    155.33
 
 Total Sales (USD): $22414165.50000221
 
@@ -16790,32 +16839,32 @@ Total Sales (USD): $22414165.50000221
 Sales For Range 2015-08-01 00:00:00 to 2015-09-01 00:00:00:
 
           Date  StoreNo        City Zipcode  CountyNo      County   Category  \
-108 2015-08-03     5070      WILTON   52778      70.0   Muscatine  1081300.0   
-125 2015-08-05     2614   DAVENPORT   52807      82.0       Scott  1062200.0   
-130 2015-08-24     2506  BURLINGTON   52601      29.0  Des Moines  1081010.0   
-140 2015-08-27     2587    JOHNSTON   50131      77.0        Polk  1011200.0   
-147 2015-08-17     2517      NEWTON   50208      50.0      Jasper  1012100.0   
+108 2015-08-03     5070      WILTON   52778      70.0   Muscatine  1081300.0
+125 2015-08-05     2614   DAVENPORT   52807      82.0       Scott  1062200.0
+130 2015-08-24     2506  BURLINGTON   52601      29.0  Des Moines  1081010.0
+140 2015-08-27     2587    JOHNSTON   50131      77.0        Polk  1011200.0
+147 2015-08-17     2517      NEWTON   50208      50.0      Jasper  1012100.0
 
                          CategoryName  VendorNo  ItemNo  \
-108               PEPPERMINT SCHNAPPS       434   80578   
-125  PUERTO RICO &amp; VIRGIN ISLANDS RUM       260   43328   
-130                 AMERICAN AMARETTO       434   76488   
-140         STRAIGHT BOURBON WHISKIES        85   22216   
-147                 CANADIAN WHISKIES       115   10553   
+108               PEPPERMINT SCHNAPPS       434   80578
+125  PUERTO RICO &amp; VIRGIN ISLANDS RUM       260   43328
+130                 AMERICAN AMARETTO       434   76488
+140         STRAIGHT BOURBON WHISKIES        85   22216
+147                 CANADIAN WHISKIES       115   10553
 
                        ItemDesc  BottleVolML  StateCost  StateRetail  \
-108   Arrow Peppermint Schnapps         1750       7.05        10.58   
-125        Captain Morgan White          750       9.00        13.50   
-130          Paramount Amaretto         1750       8.07        12.11   
-140    Woodford Reserve Bourbon          750      21.02        31.53   
-147  Black Velvet Cinnamon Rush          750       6.75        10.13   
+108   Arrow Peppermint Schnapps         1750       7.05        10.58
+125        Captain Morgan White          750       9.00        13.50
+130          Paramount Amaretto         1750       8.07        12.11
+140    Woodford Reserve Bourbon          750      21.02        31.53
+147  Black Velvet Cinnamon Rush          750       6.75        10.13
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-108            6        63.48     10.50      2.77  
-125            6        81.00      4.50      1.19  
-130            6        72.66     10.50      2.77  
-140            1        31.53      0.75      0.20  
-147            3        30.39      2.25      0.59  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+108            6        63.48     10.50      2.77
+125            6        81.00      4.50      1.19
+130            6        72.66     10.50      2.77
+140            1        31.53      0.75      0.20
+147            3        30.39      2.25      0.59
 
 Total Sales (USD): $22116397.55000192
 
@@ -16824,32 +16873,32 @@ Total Sales (USD): $22116397.55000192
 Sales For Range 2015-09-01 00:00:00 to 2015-10-01 00:00:00:
 
           Date  StoreNo         City Zipcode  CountyNo      County   Category  \
-103 2015-09-21     4898   BURLINGTON   52601      29.0  Des Moines  1031080.0   
-113 2015-09-29     2465      DUBUQUE   52003      31.0     Dubuque  1011300.0   
-126 2015-09-15     2522  SPIRIT LAKE   51360      30.0   Dickinson  1032080.0   
-129 2015-09-14     4869   GUTTENBERG   52052      22.0     Clayton  1032080.0   
-133 2015-09-17     4813  GRAND MOUND   52751      23.0     Clinton  1031080.0   
+103 2015-09-21     4898   BURLINGTON   52601      29.0  Des Moines  1031080.0
+113 2015-09-29     2465      DUBUQUE   52003      31.0     Dubuque  1011300.0
+126 2015-09-15     2522  SPIRIT LAKE   51360      30.0   Dickinson  1032080.0
+129 2015-09-14     4869   GUTTENBERG   52052      22.0     Clayton  1032080.0
+133 2015-09-17     4813  GRAND MOUND   52751      23.0     Clinton  1031080.0
 
            CategoryName  VendorNo  ItemNo                       ItemDesc  \
-103      VODKA 80 PROOF       260   37993          Smirnoff Vodka 80 Prf   
-113  TENNESSEE WHISKIES        85   86670  Jack Daniel&#39;s Tennessee Honey   
-126      IMPORTED VODKA       267   35213                 Sobieski Vodka   
-129      IMPORTED VODKA        35   34422               Grey Goose Vodka   
-133      VODKA 80 PROOF       434   36308                  Hawkeye Vodka   
+103      VODKA 80 PROOF       260   37993          Smirnoff Vodka 80 Prf
+113  TENNESSEE WHISKIES        85   86670  Jack Daniel&#39;s Tennessee Honey
+126      IMPORTED VODKA       267   35213                 Sobieski Vodka
+129      IMPORTED VODKA        35   34422               Grey Goose Vodka
+133      VODKA 80 PROOF       434   36308                  Hawkeye Vodka
 
      BottleVolML  StateCost  StateRetail  BottlesSold  SaleDollars  VolSoldL  \
-103          200       2.75         4.13           10        41.30       2.0   
-113          750      15.07        22.61            2        45.22       1.5   
-126         1750      10.99        16.49            6        98.94      10.5   
-129         1000      22.50        33.75            6       202.50       6.0   
-133         1750       7.17        10.76           12       129.12      21.0   
+103          200       2.75         4.13           10        41.30       2.0
+113          750      15.07        22.61            2        45.22       1.5
+126         1750      10.99        16.49            6        98.94      10.5
+129         1000      22.50        33.75            6       202.50       6.0
+133         1750       7.17        10.76           12       129.12      21.0
 
-     VolSoldG  
-103      0.53  
-113      0.40  
-126      2.77  
-129      1.59  
-133      5.55  
+     VolSoldG
+103      0.53
+113      0.40
+126      2.77
+129      1.59
+133      5.55
 
 Total Sales (USD): $24113360.170001317
 
@@ -16858,32 +16907,32 @@ Total Sales (USD): $24113360.170001317
 Sales For Range 2015-10-01 00:00:00 to 2015-11-01 00:00:00:
 
           Date  StoreNo          City Zipcode  CountyNo       County  \
-118 2015-10-07     5172  CEDAR RAPIDS   52404      57.0         Linn   
-120 2015-10-14     5151     IDA GROVE   51445      47.0          Ida   
-128 2015-10-19     3882     DAVENPORT   52802      82.0        Scott   
-141 2015-10-06     4443          PALO   52324      57.0         Linn   
-158 2015-10-22     3713    MASON CITY   50401      17.0  Cerro Gordo   
+118 2015-10-07     5172  CEDAR RAPIDS   52404      57.0         Linn
+120 2015-10-14     5151     IDA GROVE   51445      47.0          Ida
+128 2015-10-19     3882     DAVENPORT   52802      82.0        Scott
+141 2015-10-06     4443          PALO   52324      57.0         Linn
+158 2015-10-22     3713    MASON CITY   50401      17.0  Cerro Gordo
 
       Category               CategoryName  VendorNo  ItemNo  \
-118  1032080.0             IMPORTED VODKA       370   34004   
-120  1041150.0              FLAVORED GINS       370   33256   
-128  1012100.0          CANADIAN WHISKIES       115   11777   
-141  1012100.0          CANADIAN WHISKIES       115   11788   
-158  1011200.0  STRAIGHT BOURBON WHISKIES        65   27783   
+118  1032080.0             IMPORTED VODKA       370   34004
+120  1041150.0              FLAVORED GINS       370   33256
+128  1012100.0          CANADIAN WHISKIES       115   11777
+141  1012100.0          CANADIAN WHISKIES       115   11788
+158  1011200.0  STRAIGHT BOURBON WHISKIES        65   27783
 
                          ItemDesc  BottleVolML  StateCost  StateRetail  \
-118  Absolut Swedish Vodka 80 Prf          375       6.49         9.74   
-120     Seagrams Lime Twisted Gin          750       6.49         9.74   
-128                  Black Velvet         1000       6.63         9.95   
-141                  Black Velvet         1750       9.45        14.68   
-158                Jim Beam Apple          750      10.49        15.74   
+118  Absolut Swedish Vodka 80 Prf          375       6.49         9.74
+120     Seagrams Lime Twisted Gin          750       6.49         9.74
+128                  Black Velvet         1000       6.63         9.95
+141                  Black Velvet         1750       9.45        14.68
+158                Jim Beam Apple          750      10.49        15.74
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-118            4        38.96       1.5      0.40  
-120           12       116.88       9.0      2.38  
-128            4        39.80       4.0      1.06  
-141           12       176.16      21.0      5.55  
-158           12       188.88       9.0      2.38  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+118            4        38.96       1.5      0.40
+120           12       116.88       9.0      2.38
+128            4        39.80       4.0      1.06
+141           12       176.16      21.0      5.55
+158           12       188.88       9.0      2.38
 
 Total Sales (USD): $25913248.07000086
 
@@ -16892,32 +16941,32 @@ Total Sales (USD): $25913248.07000086
 Sales For Range 2015-11-01 00:00:00 to 2015-12-01 00:00:00:
 
         Date  StoreNo          City Zipcode  CountyNo   County   Category  \
-0 2015-11-20     2191        KEOKUK   52632      56.0      Lee  1000000.0   
-1 2015-11-21     2205      CLARINDA   51632      73.0     Page  1000000.0   
-2 2015-11-16     3549  FORT MADISON   52627      56.0      Lee  1000000.0   
-3 2015-11-04     2513     IOWA CITY   52240      52.0  Johnson  1000000.0   
-4 2015-11-17     3942        TOLEDO   52342      86.0     Tama  1000000.0   
+0 2015-11-20     2191        KEOKUK   52632      56.0      Lee  1000000.0
+1 2015-11-21     2205      CLARINDA   51632      73.0     Page  1000000.0
+2 2015-11-16     3549  FORT MADISON   52627      56.0      Lee  1000000.0
+3 2015-11-04     2513     IOWA CITY   52240      52.0  Johnson  1000000.0
+4 2015-11-17     3942        TOLEDO   52342      86.0     Tama  1000000.0
 
   CategoryName  VendorNo  ItemNo  \
-0        OTHER       255     297   
-1        OTHER       255     297   
-2        OTHER       130     249   
-3        OTHER        65     237   
-4        OTHER       130     249   
+0        OTHER       255     297
+1        OTHER       255     297
+2        OTHER       130     249
+3        OTHER        65     237
+4        OTHER       130     249
 
                                         ItemDesc  BottleVolML  StateCost  \
-0                          Templeton Rye w/Flask          750      18.09   
-1                          Templeton Rye w/Flask          750      18.09   
-2  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
-3                 Knob Creek w/ Crystal Decanter         1750      35.55   
-4  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
+0                          Templeton Rye w/Flask          750      18.09
+1                          Templeton Rye w/Flask          750      18.09
+2  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
+3                 Knob Creek w/ Crystal Decanter         1750      35.55
+4  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
 
-   StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-0        27.14            6       162.84      4.50      1.19  
-1        27.14           12       325.68      9.00      2.38  
-2         9.60            2        19.20      0.30      0.08  
-3        53.34            3       160.02      5.25      1.39  
-4         9.60            2        19.20      0.30      0.08  
+   StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG
+0        27.14            6       162.84      4.50      1.19
+1        27.14           12       325.68      9.00      2.38
+2         9.60            2        19.20      0.30      0.08
+3        53.34            3       160.02      5.25      1.39
+4         9.60            2        19.20      0.30      0.08
 
 Total Sales (USD): $23718715.060001533
 
@@ -16926,32 +16975,32 @@ Total Sales (USD): $23718715.060001533
 Sales For Range 2015-12-01 00:00:00 to 2016-01-01 00:00:00:
 
               Date  StoreNo        City Zipcode  CountyNo      County  \
-1953655 2015-12-22     2200    SAC CITY   50583      81.0         Sac   
-1953718 2015-12-09     3819     DECORAH   52101      96.0  Winneshiek   
-1953863 2015-12-18     4417       ADAIR   50002       1.0       Adair   
-1953887 2015-12-29     3990   OSKALOOSA   52577      62.0     Mahaska   
-1953888 2015-12-30     2626  DES MOINES   50311      77.0        Polk   
+1953655 2015-12-22     2200    SAC CITY   50583      81.0         Sac
+1953718 2015-12-09     3819     DECORAH   52101      96.0  Winneshiek
+1953863 2015-12-18     4417       ADAIR   50002       1.0       Adair
+1953887 2015-12-29     3990   OSKALOOSA   52577      62.0     Mahaska
+1953888 2015-12-30     2626  DES MOINES   50311      77.0        Polk
 
           Category                    CategoryName  VendorNo  ItemNo  \
-1953655  1062310.0                      SPICED RUM       260    1799   
-1953718  1062310.0                      SPICED RUM       260    1799   
-1953863  1062310.0                      SPICED RUM       260    1799   
-1953887  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-1953888  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
+1953655  1062310.0                      SPICED RUM       260    1799
+1953718  1062310.0                      SPICED RUM       260    1799
+1953863  1062310.0                      SPICED RUM       260    1799
+1953887  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+1953888  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
 
                              ItemDesc  BottleVolML  StateCost  StateRetail  \
-1953655  Captain Morgan Spiced Barrel         1750      18.00        27.00   
-1953718  Captain Morgan Spiced Barrel         1750      18.00        27.00   
-1953863  Captain Morgan Spiced Barrel         1750      18.00        27.00   
-1953887   Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-1953888   Laphroaig w/ Whiskey Stones          750      19.58        29.37   
+1953655  Captain Morgan Spiced Barrel         1750      18.00        27.00
+1953718  Captain Morgan Spiced Barrel         1750      18.00        27.00
+1953863  Captain Morgan Spiced Barrel         1750      18.00        27.00
+1953887   Laphroaig w/ Whiskey Stones          750      19.58        29.37
+1953888   Laphroaig w/ Whiskey Stones          750      19.58        29.37
 
-         BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-1953655           12       324.00     21.00      5.55  
-1953718            6       162.00     10.50      2.77  
-1953863            6       162.00     10.50      2.77  
-1953887            1        29.37      0.75      0.20  
-1953888            5       146.85      3.75      0.99  
+         BottlesSold  SaleDollars  VolSoldL  VolSoldG
+1953655           12       324.00     21.00      5.55
+1953718            6       162.00     10.50      2.77
+1953863            6       162.00     10.50      2.77
+1953887            1        29.37      0.75      0.20
+1953888            5       146.85      3.75      0.99
 
 Total Sales (USD): $30683137.909997962
 
@@ -16960,32 +17009,32 @@ Total Sales (USD): $30683137.909997962
 Sales For Range 2016-01-01 00:00:00 to 2016-02-01 00:00:00:
 
               Date  StoreNo          City Zipcode  CountyNo      County  \
-2184243 2016-01-26     3621       SHELDON   51201      71.0     O&#39;Brien   
-2184484 2016-01-12     2552  CEDAR RAPIDS   52404      57.0        Linn   
-2184485 2016-01-13     2513     IOWA CITY   52240      52.0     Johnson   
-2184486 2016-01-13     3869    CORALVILLE   52241      52.0     Johnson   
-2184487 2016-01-14     2106   CEDAR FALLS   50613       7.0  Black Hawk   
+2184243 2016-01-26     3621       SHELDON   51201      71.0     O&#39;Brien
+2184484 2016-01-12     2552  CEDAR RAPIDS   52404      57.0        Linn
+2184485 2016-01-13     2513     IOWA CITY   52240      52.0     Johnson
+2184486 2016-01-13     3869    CORALVILLE   52241      52.0     Johnson
+2184487 2016-01-14     2106   CEDAR FALLS   50613       7.0  Black Hawk
 
           Category                    CategoryName  VendorNo  ItemNo  \
-2184243  1012200.0                 SCOTCH WHISKIES       497    1224   
-2184484  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-2184485  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-2184486  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-2184487  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
+2184243  1012200.0                 SCOTCH WHISKIES       497    1224
+2184484  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+2184485  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+2184486  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+2184487  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
 
                             ItemDesc  BottleVolML  StateCost  StateRetail  \
-2184243                    Sheep Dip          750      21.50        32.25   
-2184484  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-2184485  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-2184486  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-2184487  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
+2184243                    Sheep Dip          750      21.50        32.25
+2184484  Laphroaig w/ Whiskey Stones          750      19.58        29.37
+2184485  Laphroaig w/ Whiskey Stones          750      19.58        29.37
+2184486  Laphroaig w/ Whiskey Stones          750      19.58        29.37
+2184487  Laphroaig w/ Whiskey Stones          750      19.58        29.37
 
-         BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-2184243            1        32.25      0.75      0.20  
-2184484            2        58.74      1.50      0.40  
-2184485           12       352.44      9.00      2.38  
-2184486            3        88.11      2.25      0.59  
-2184487            1        29.37      0.75      0.20  
+         BottlesSold  SaleDollars  VolSoldL  VolSoldG
+2184243            1        32.25      0.75      0.20
+2184484            2        58.74      1.50      0.40
+2184485           12       352.44      9.00      2.38
+2184486            3        88.11      2.25      0.59
+2184487            1        29.37      0.75      0.20
 
 Total Sales (USD): $19018055.360003076
 
@@ -16994,32 +17043,32 @@ Total Sales (USD): $19018055.360003076
 Sales For Range 2016-02-01 00:00:00 to 2016-03-01 00:00:00:
 
               Date  StoreNo      City Zipcode  CountyNo   County   Category  \
-2289131 2016-02-01     2191    KEOKUK   52632      56.0      Lee  1062310.0   
-2343567 2016-02-01     4307    DUNLAP   712-2       0.0      NaN  1081300.0   
-2343568 2016-02-02     3822   SWISHER   52338      52.0  Johnson  1081200.0   
-2343569 2016-02-02     4396  REINBECK   50669      38.0   Grundy  1051010.0   
-2343570 2016-02-01     4885   ZWINGLE   52079      49.0  Jackson  1031090.0   
+2289131 2016-02-01     2191    KEOKUK   52632      56.0      Lee  1062310.0
+2343567 2016-02-01     4307    DUNLAP   712-2       0.0      NaN  1081300.0
+2343568 2016-02-02     3822   SWISHER   52338      52.0  Johnson  1081200.0
+2343569 2016-02-02     4396  REINBECK   50669      38.0   Grundy  1051010.0
+2343570 2016-02-01     4885   ZWINGLE   52079      49.0  Jackson  1031090.0
 
                     CategoryName  VendorNo  ItemNo  \
-2289131               SPICED RUM       395   46504   
-2343567      PEPPERMINT SCHNAPPS       370  903926   
-2343568           CREAM LIQUEURS       305  903255   
-2343569  AMERICAN GRAPE BRANDIES       259  904888   
-2343570        OTHER PROOF VODKA       300   40118   
+2289131               SPICED RUM       395   46504
+2343567      PEPPERMINT SCHNAPPS       370  903926
+2343568           CREAM LIQUEURS       305  903255
+2343569  AMERICAN GRAPE BRANDIES       259  904888
+2343570        OTHER PROOF VODKA       300   40118
 
                                  ItemDesc  BottleVolML  StateCost  \
-2289131           Kraken Black Spiced Rum          750      10.00   
-2343567  Hiram Walker Peppermint Schnapps          750       4.00   
-2343568       Amarula Fruit Cream Liqueur          750      10.73   
-2343569   Christian Brothers Frost Brandy         1750      12.59   
-2343570                 Dueces Wild Vodka         1750       6.67   
+2289131           Kraken Black Spiced Rum          750      10.00
+2343567  Hiram Walker Peppermint Schnapps          750       4.00
+2343568       Amarula Fruit Cream Liqueur          750      10.73
+2343569   Christian Brothers Frost Brandy         1750      12.59
+2343570                 Dueces Wild Vodka         1750       6.67
 
-         StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-2289131        15.00            1        15.00      0.75      0.20  
-2343567         6.00           12        72.00      9.00      2.38  
-2343568        16.10           12       193.20      9.00      2.38  
-2343569        18.89            6       113.34     10.50      2.77  
-2343570        10.01            6        60.06     10.50      2.77  
+         StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG
+2289131        15.00            1        15.00      0.75      0.20
+2343567         6.00           12        72.00      9.00      2.38
+2343568        16.10           12       193.20      9.00      2.38
+2343569        18.89            6       113.34     10.50      2.77
+2343570        10.01            6        60.06     10.50      2.77
 
 Total Sales (USD): $22801842.480001032
 
@@ -17028,32 +17077,32 @@ Total Sales (USD): $22801842.480001032
 Sales For Range 2016-03-01 00:00:00 to 2016-04-01 00:00:00:
 
               Date  StoreNo       City Zipcode  CountyNo   County   Category  \
-2516112 2016-03-01     4167    DUBUQUE   52001      31.0  Dubuque  1022100.0   
-2516180 2016-03-01     4563     IRETON   51027      84.0    Sioux  1081300.0   
-2516181 2016-03-02     3354  DAVENPORT   52807      82.0    Scott  1071100.0   
-2516182 2016-03-02     3354  DAVENPORT   52807      82.0    Scott  1071100.0   
-2516183 2016-03-03     5144     ANKENY   50021      77.0     Polk  1071100.0   
+2516112 2016-03-01     4167    DUBUQUE   52001      31.0  Dubuque  1022100.0
+2516180 2016-03-01     4563     IRETON   51027      84.0    Sioux  1081300.0
+2516181 2016-03-02     3354  DAVENPORT   52807      82.0    Scott  1071100.0
+2516182 2016-03-02     3354  DAVENPORT   52807      82.0    Scott  1071100.0
+2516183 2016-03-03     5144     ANKENY   50021      77.0     Polk  1071100.0
 
                 CategoryName  VendorNo  ItemNo  \
-2516112              TEQUILA       395  903089   
-2516180  PEPPERMINT SCHNAPPS        55  981176   
-2516181   AMERICAN COCKTAILS       260   63740   
-2516182   AMERICAN COCKTAILS       260   63741   
-2516183   AMERICAN COCKTAILS       260   63741   
+2516112              TEQUILA       395  903089
+2516180  PEPPERMINT SCHNAPPS        55  981176
+2516181   AMERICAN COCKTAILS       260   63740
+2516182   AMERICAN COCKTAILS       260   63741
+2516183   AMERICAN COCKTAILS       260   63741
 
                                ItemDesc  BottleVolML  StateCost  StateRetail  \
-2516112           Gran Centenario Anejo          750      30.64        45.96   
-2516180  Mr. Boston Peppermint Schnapps          750       2.94         4.41   
-2516181        Studebaker Old Fashioned          750      12.49        18.74   
-2516182            Studebaker Manhattan          750      12.49        18.74   
-2516183            Studebaker Manhattan          750      12.49        18.74   
+2516112           Gran Centenario Anejo          750      30.64        45.96
+2516180  Mr. Boston Peppermint Schnapps          750       2.94         4.41
+2516181        Studebaker Old Fashioned          750      12.49        18.74
+2516182            Studebaker Manhattan          750      12.49        18.74
+2516183            Studebaker Manhattan          750      12.49        18.74
 
-         BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-2516112            6       275.76       4.5      1.19  
-2516180           24       105.84      18.0      4.76  
-2516181          300      5622.00     225.0     59.44  
-2516182          300      5622.00     225.0     59.44  
-2516183          300      5622.00     225.0     59.44  
+         BottlesSold  SaleDollars  VolSoldL  VolSoldG
+2516112            6       275.76       4.5      1.19
+2516180           24       105.84      18.0      4.76
+2516181          300      5622.00     225.0     59.44
+2516182          300      5622.00     225.0     59.44
+2516183          300      5622.00     225.0     59.44
 
 Total Sales (USD): $23706446.340001382
 
@@ -18129,13 +18178,13 @@ wWinM+3fMbAAAAAASUVORK5CYII=
 <span class="k">while</span> <span class="n">qtr</span> <span class="o">&lt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2016-04-01&#39;</span><span class="p">):</span>
     <span class="n">quartersales</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">qtr</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">qtr</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">3</span><span class="p">)))]</span>
     <span class="n">saleByQtr</span><span class="p">[</span><span class="n">qq</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">qq</span><span class="p">,</span> <span class="n">quartersales</span><span class="p">[</span><span class="s2">&quot;SaleDollars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span>
-    
+
     <span class="n">titlestring</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sales For Range &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">qtr</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">qtr</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">titlestring</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">quartersales</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-    
+
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Sales (USD): $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">quartersales</span><span class="p">[</span><span class="s2">&quot;SaleDollars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+
     <span class="n">qq</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">qtr</span> <span class="o">+=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -18156,32 +18205,32 @@ wWinM+3fMbAAAAAASUVORK5CYII=
 Sales For Range 2015-01-01 00:00:00 to 2015-04-01 00:00:00:
 
           Date  StoreNo            City Zipcode  CountyNo         County  \
-100 2015-01-26     4742  COUNCIL BLUFFS   51501      78.0  Pottawattamie   
-106 2015-03-12     4847       LE CLAIRE   52753      82.0          Scott   
-107 2015-01-15     4969      CLEAR LAKE   50428      17.0    Cerro Gordo   
-109 2015-02-12     4269          TIPTON   52772      16.0          Cedar   
-111 2015-01-12     4659          CONRAD   50621      38.0         Grundy   
+100 2015-01-26     4742  COUNCIL BLUFFS   51501      78.0  Pottawattamie
+106 2015-03-12     4847       LE CLAIRE   52753      82.0          Scott
+107 2015-01-15     4969      CLEAR LAKE   50428      17.0    Cerro Gordo
+109 2015-02-12     4269          TIPTON   52772      16.0          Cedar
+111 2015-01-12     4659          CONRAD   50621      38.0         Grundy
 
       Category                      CategoryName  VendorNo  ItemNo  \
-100  1062200.0  PUERTO RICO &amp; VIRGIN ISLANDS RUM        35   43128   
-106  1011200.0         STRAIGHT BOURBON WHISKIES        65   19061   
-107  1012210.0                SINGLE MALT SCOTCH       305    5486   
-109  1012100.0                 CANADIAN WHISKIES        65   10626   
-111  1031080.0                    VODKA 80 PROOF       260   37991   
+100  1062200.0  PUERTO RICO &amp; VIRGIN ISLANDS RUM        35   43128
+106  1011200.0         STRAIGHT BOURBON WHISKIES        65   19061
+107  1012210.0                SINGLE MALT SCOTCH       305    5486
+109  1012100.0                 CANADIAN WHISKIES        65   10626
+111  1031080.0                    VODKA 80 PROOF       260   37991
 
                               ItemDesc  BottleVolML  StateCost  StateRetail  \
-100               Bacardi Superior Rum         1750      15.00        22.50   
-106                      Jim Beam Mini          500       6.83        10.25   
-107  Macallan 12 Yr Single Malt Scotch          750      30.07        45.11   
-109               Canadian Club Whisky          750       7.88        11.82   
-111         Smirnoff Vodka 80 Prf Mini          500       7.47        11.21   
+100               Bacardi Superior Rum         1750      15.00        22.50
+106                      Jim Beam Mini          500       6.83        10.25
+107  Macallan 12 Yr Single Malt Scotch          750      30.07        45.11
+109               Canadian Club Whisky          750       7.88        11.82
+111         Smirnoff Vodka 80 Prf Mini          500       7.47        11.21
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-100           12       270.00     21.00      5.55  
-106            1        10.25      0.50      0.13  
-107            3       135.33      2.25      0.59  
-109            5        59.10      3.75      0.99  
-111            1        11.21      0.50      0.13  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+100           12       270.00     21.00      5.55
+106            1        10.25      0.50      0.13
+107            3       135.33      2.25      0.59
+109            5        59.10      3.75      0.99
+111            1        11.21      0.50      0.13
 
 Total Sales (USD): $62985230.430025995
 
@@ -18190,32 +18239,32 @@ Total Sales (USD): $62985230.430025995
 Sales For Range 2015-04-01 00:00:00 to 2015-07-01 00:00:00:
 
           Date  StoreNo            City Zipcode  CountyNo         County  \
-102 2015-06-09     2666          ANKENY   50023      77.0           Polk   
-105 2015-05-07     4958     CEDAR FALLS   50613       7.0     Black Hawk   
-116 2015-04-06     4673      WEST POINT   52656      56.0            Lee   
-119 2015-06-08     4312  COUNCIL BLUFFS   51501      78.0  Pottawattamie   
-121 2015-06-03     5025    CEDAR RAPIDS   52403      57.0           Linn   
+102 2015-06-09     2666          ANKENY   50023      77.0           Polk
+105 2015-05-07     4958     CEDAR FALLS   50613       7.0     Black Hawk
+116 2015-04-06     4673      WEST POINT   52656      56.0            Lee
+119 2015-06-08     4312  COUNCIL BLUFFS   51501      78.0  Pottawattamie
+121 2015-06-03     5025    CEDAR RAPIDS   52403      57.0           Linn
 
       Category                        CategoryName  VendorNo  ItemNo  \
-102  1081900.0  MISC. AMERICAN CORDIALS &amp; LIQUEURS       259   76478   
-105  1081600.0                     WHISKEY LIQUEUR       259   86796   
-116  1081600.0                     WHISKEY LIQUEUR       421   64866   
-119  1081600.0                     WHISKEY LIQUEUR       421   64864   
-121  1052010.0             IMPORTED GRAPE BRANDIES       389   49189   
+102  1081900.0  MISC. AMERICAN CORDIALS &amp; LIQUEURS       259   76478
+105  1081600.0                     WHISKEY LIQUEUR       259   86796
+116  1081600.0                     WHISKEY LIQUEUR       421   64866
+119  1081600.0                     WHISKEY LIQUEUR       421   64864
+121  1052010.0             IMPORTED GRAPE BRANDIES       389   49189
 
                           ItemDesc  BottleVolML  StateCost  StateRetail  \
-102       Pama Pomegranate Liqueur          750       8.83        13.75   
-105  Southern Host Whiskey Liqueur          750       4.87         7.56   
-116      Fireball Cinnamon Whiskey          750       8.98        13.47   
-119       Fireball Cinnamon Whisky          375       5.33         8.00   
-121        Remy Martin Vsop Cognac          200       5.70         8.55   
+102       Pama Pomegranate Liqueur          750       8.83        13.75
+105  Southern Host Whiskey Liqueur          750       4.87         7.56
+116      Fireball Cinnamon Whiskey          750       8.98        13.47
+119       Fireball Cinnamon Whisky          375       5.33         8.00
+121        Remy Martin Vsop Cognac          200       5.70         8.55
 
-     BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-102            2        27.50      1.50      0.40  
-105            3        22.68      2.25      0.59  
-116           24       323.28     18.00      4.76  
-119           48       384.00     18.00      4.76  
-121           24       205.20      4.80      1.27  
+     BottlesSold  SaleDollars  VolSoldL  VolSoldG
+102            2        27.50      1.50      0.40
+105            3        22.68      2.25      0.59
+116           24       323.28     18.00      4.76
+119           48       384.00     18.00      4.76
+121           24       205.20      4.80      1.27
 
 Total Sales (USD): $72384317.42003457
 
@@ -18224,32 +18273,32 @@ Total Sales (USD): $72384317.42003457
 Sales For Range 2015-07-01 00:00:00 to 2015-10-01 00:00:00:
 
           Date  StoreNo        City Zipcode  CountyNo      County   Category  \
-103 2015-09-21     4898  BURLINGTON   52601      29.0  Des Moines  1031080.0   
-108 2015-08-03     5070      WILTON   52778      70.0   Muscatine  1081300.0   
-112 2015-07-09     3647     CLINTON   52732      23.0     Clinton  1031080.0   
-113 2015-09-29     2465     DUBUQUE   52003      31.0     Dubuque  1011300.0   
-115 2015-07-22     2500        AMES   50010      85.0       Story  1012200.0   
+103 2015-09-21     4898  BURLINGTON   52601      29.0  Des Moines  1031080.0
+108 2015-08-03     5070      WILTON   52778      70.0   Muscatine  1081300.0
+112 2015-07-09     3647     CLINTON   52732      23.0     Clinton  1031080.0
+113 2015-09-29     2465     DUBUQUE   52003      31.0     Dubuque  1011300.0
+115 2015-07-22     2500        AMES   50010      85.0       Story  1012200.0
 
             CategoryName  VendorNo  ItemNo                       ItemDesc  \
-103       VODKA 80 PROOF       260   37993          Smirnoff Vodka 80 Prf   
-108  PEPPERMINT SCHNAPPS       434   80578      Arrow Peppermint Schnapps   
-112       VODKA 80 PROOF       301   38178           Titos Handmade Vodka   
-113   TENNESSEE WHISKIES        85   86670  Jack Daniel&#39;s Tennessee Honey   
-115      SCOTCH WHISKIES       260    6196                 Talisker Storm   
+103       VODKA 80 PROOF       260   37993          Smirnoff Vodka 80 Prf
+108  PEPPERMINT SCHNAPPS       434   80578      Arrow Peppermint Schnapps
+112       VODKA 80 PROOF       301   38178           Titos Handmade Vodka
+113   TENNESSEE WHISKIES        85   86670  Jack Daniel&#39;s Tennessee Honey
+115      SCOTCH WHISKIES       260    6196                 Talisker Storm
 
      BottleVolML  StateCost  StateRetail  BottlesSold  SaleDollars  VolSoldL  \
-103          200       2.75         4.13           10        41.30      2.00   
-108         1750       7.05        10.58            6        63.48     10.50   
-112         1750      18.52        27.78            6       166.68     10.50   
-113          750      15.07        22.61            2        45.22      1.50   
-115          750      34.49        51.74            1        51.74      0.75   
+103          200       2.75         4.13           10        41.30      2.00
+108         1750       7.05        10.58            6        63.48     10.50
+112         1750      18.52        27.78            6       166.68     10.50
+113          750      15.07        22.61            2        45.22      1.50
+115          750      34.49        51.74            1        51.74      0.75
 
-     VolSoldG  
-103      0.53  
-108      2.77  
-112      2.77  
-113      0.40  
-115      0.20  
+     VolSoldG
+103      0.53
+108      2.77
+112      2.77
+113      0.40
+115      0.20
 
 Total Sales (USD): $68643923.22003439
 
@@ -18258,32 +18307,32 @@ Total Sales (USD): $68643923.22003439
 Sales For Range 2015-10-01 00:00:00 to 2016-01-01 00:00:00:
 
         Date  StoreNo          City Zipcode  CountyNo   County   Category  \
-0 2015-11-20     2191        KEOKUK   52632      56.0      Lee  1000000.0   
-1 2015-11-21     2205      CLARINDA   51632      73.0     Page  1000000.0   
-2 2015-11-16     3549  FORT MADISON   52627      56.0      Lee  1000000.0   
-3 2015-11-04     2513     IOWA CITY   52240      52.0  Johnson  1000000.0   
-4 2015-11-17     3942        TOLEDO   52342      86.0     Tama  1000000.0   
+0 2015-11-20     2191        KEOKUK   52632      56.0      Lee  1000000.0
+1 2015-11-21     2205      CLARINDA   51632      73.0     Page  1000000.0
+2 2015-11-16     3549  FORT MADISON   52627      56.0      Lee  1000000.0
+3 2015-11-04     2513     IOWA CITY   52240      52.0  Johnson  1000000.0
+4 2015-11-17     3942        TOLEDO   52342      86.0     Tama  1000000.0
 
   CategoryName  VendorNo  ItemNo  \
-0        OTHER       255     297   
-1        OTHER       255     297   
-2        OTHER       130     249   
-3        OTHER        65     237   
-4        OTHER       130     249   
+0        OTHER       255     297
+1        OTHER       255     297
+2        OTHER       130     249
+3        OTHER        65     237
+4        OTHER       130     249
 
                                         ItemDesc  BottleVolML  StateCost  \
-0                          Templeton Rye w/Flask          750      18.09   
-1                          Templeton Rye w/Flask          750      18.09   
-2  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
-3                 Knob Creek w/ Crystal Decanter         1750      35.55   
-4  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40   
+0                          Templeton Rye w/Flask          750      18.09
+1                          Templeton Rye w/Flask          750      18.09
+2  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
+3                 Knob Creek w/ Crystal Decanter         1750      35.55
+4  Disaronno Amaretto Cavalli Mignon 3-50ml Pack          150       6.40
 
-   StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-0        27.14            6       162.84      4.50      1.19  
-1        27.14           12       325.68      9.00      2.38  
-2         9.60            2        19.20      0.30      0.08  
-3        53.34            3       160.02      5.25      1.39  
-4         9.60            2        19.20      0.30      0.08  
+   StateRetail  BottlesSold  SaleDollars  VolSoldL  VolSoldG
+0        27.14            6       162.84      4.50      1.19
+1        27.14           12       325.68      9.00      2.38
+2         9.60            2        19.20      0.30      0.08
+3        53.34            3       160.02      5.25      1.39
+4         9.60            2        19.20      0.30      0.08
 
 Total Sales (USD): $80315101.04004072
 
@@ -18292,32 +18341,32 @@ Total Sales (USD): $80315101.04004072
 Sales For Range 2016-01-01 00:00:00 to 2016-04-01 00:00:00:
 
               Date  StoreNo          City Zipcode  CountyNo      County  \
-2184243 2016-01-26     3621       SHELDON   51201      71.0     O&#39;Brien   
-2184484 2016-01-12     2552  CEDAR RAPIDS   52404      57.0        Linn   
-2184485 2016-01-13     2513     IOWA CITY   52240      52.0     Johnson   
-2184486 2016-01-13     3869    CORALVILLE   52241      52.0     Johnson   
-2184487 2016-01-14     2106   CEDAR FALLS   50613       7.0  Black Hawk   
+2184243 2016-01-26     3621       SHELDON   51201      71.0     O&#39;Brien
+2184484 2016-01-12     2552  CEDAR RAPIDS   52404      57.0        Linn
+2184485 2016-01-13     2513     IOWA CITY   52240      52.0     Johnson
+2184486 2016-01-13     3869    CORALVILLE   52241      52.0     Johnson
+2184487 2016-01-14     2106   CEDAR FALLS   50613       7.0  Black Hawk
 
           Category                    CategoryName  VendorNo  ItemNo  \
-2184243  1012200.0                 SCOTCH WHISKIES       497    1224   
-2184484  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-2184485  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-2184486  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
-2184487  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173   
+2184243  1012200.0                 SCOTCH WHISKIES       497    1224
+2184484  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+2184485  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+2184486  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
+2184487  1701100.0  DECANTERS &amp; SPECIALTY PACKAGES        65     173
 
                             ItemDesc  BottleVolML  StateCost  StateRetail  \
-2184243                    Sheep Dip          750      21.50        32.25   
-2184484  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-2184485  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-2184486  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
-2184487  Laphroaig w/ Whiskey Stones          750      19.58        29.37   
+2184243                    Sheep Dip          750      21.50        32.25
+2184484  Laphroaig w/ Whiskey Stones          750      19.58        29.37
+2184485  Laphroaig w/ Whiskey Stones          750      19.58        29.37
+2184486  Laphroaig w/ Whiskey Stones          750      19.58        29.37
+2184487  Laphroaig w/ Whiskey Stones          750      19.58        29.37
 
-         BottlesSold  SaleDollars  VolSoldL  VolSoldG  
-2184243            1        32.25      0.75      0.20  
-2184484            2        58.74      1.50      0.40  
-2184485           12       352.44      9.00      2.38  
-2184486            3        88.11      2.25      0.59  
-2184487            1        29.37      0.75      0.20  
+         BottlesSold  SaleDollars  VolSoldL  VolSoldG
+2184243            1        32.25      0.75      0.20
+2184484            2        58.74      1.50      0.40
+2184485           12       352.44      9.00      2.38
+2184486            3        88.11      2.25      0.59
+2184487            1        29.37      0.75      0.20
 
 Total Sales (USD): $65526344.180021815
 
@@ -19293,7 +19342,7 @@ ckkEEREtl0QQEdFySQQRES33/wExeFXWaG2dmAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Record-your-findings">Record your findings<a class="anchor-link" href="#Record-your-findings">&#182;</a></h1><p>Be sure to write out any observations from your exploratory analysis.</p>
+<h1 id="Record-your-findings">Record Findings<a class="anchor-link" href="#Record-your-findings">&#182;</a></h1><p>Be sure to write out any observations from your exploratory analysis.</p>
 
 </div>
 </div>
@@ -22522,7 +22571,7 @@ ZsT/Aw8zflVod+q6AAAAAElFTkSuQmCC
   </div>
 </body>
 
- 
+
 
 
 </html>
