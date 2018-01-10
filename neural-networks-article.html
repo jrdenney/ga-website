@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Neural Networks Article Study</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Neural Networks Study - James Denney</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -10427,6 +10427,7 @@ div#notebook {
   width: 100%;
   /* This spaces the page away from the edge of the notebook area */
   padding-top: 20px;
+  padding-bottom: 20px;
   margin: 0px;
   outline: none;
   box-sizing: border-box;
@@ -11720,7 +11721,7 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 body {
   overflow: visible;
-  padding: 8px;
+  padding: 0;
 }
 
 div#notebook {
@@ -11742,6 +11743,40 @@ div#notebook {
     page-break-inside: avoid;
   }
 }
+
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background: rgba(255,255,255, 0.6);
+    width: 80%;
+}
+
+.text-vertical-center h1 {
+    font-size: 4.5em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.text-vertical-center h3 {
+    font-size: 3em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.text-vertical-center h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+.service-item h4 {
+    font-size: 2em;
+}
+.service-item p {
+    font-size: 1em;
+}
+
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11768,8 +11803,48 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+    <!-- End of mathjax configuration -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+</head>
 <body>
+  <!-- Navigation -->
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+    <i class="fa fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+        <i class="fa fa-times"></i>
+      </a>
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#top">James Denney</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="https://jrdenney.github.io/ga-website/">Home</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#Building-a-Network">Building a Network</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#Show-performance">Network Performance</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact James</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="text-vertical-center">
+        <h1><a href="https://jrdenney.github.io/ga-website/">James Denney</a></h1>
+        <h3>Data Scientist</h3>
+    </div>
+  </header>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11894,7 +11969,7 @@ div#notebook {
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Building-a-Network" class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Problem 6</strong>: Build the neural network from your work in Problem 5 here.</p>
 <p>A few things to keep in mind:</p>
 <ul>
@@ -12321,7 +12396,7 @@ $$<ul>
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Show-performance" class="text_cell_render border-box-sizing rendered_html">
 <p>To assess the performance of the neural network predictions, we use mean squared error. The equation is given above, and I separated it into two steps to ensure accuracy. The first step calculates the differences squared (the $(\hat{y}-y)^2$ term), using predicted values for $\hat{y}$ and actual values for $y$. The second step sums these squares and divides by the length of the predictions/actuals.</p>
 
 </div>
@@ -12787,6 +12862,148 @@ DFNCCCGEEAWQYUoIIYQQogAyTAkhhBBCFOA/m3mhV9E1HUoAAAAASUVORK5CYII=
 </div>
     </div>
   </div>
+
+  <!-- Featured Work -->
+  <section id="featured" class="services bg-success text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-10 mx-auto">
+          <h1>Featured Work</h1>
+          <hr class="small">
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="service-item">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-cloud fa-stack-1x text-success"></i>
+                </span>
+                <h4>
+                  <strong>Neural Networks</strong>
+                </h4>
+                <p>They're a "sexy" machine learning concept, but how do they work? Check out an assignment I completed to construct neural networks to mimic a complex function!</p>
+                <a href="https://jrdenney.github.io/ga-website/neural-networks-article.html" class="btn btn-light">See My Work</a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="service-item">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-compass fa-stack-1x text-success"></i>
+                </span>
+                <h4>
+                  <strong>Gradient Descent</strong>
+                </h4>
+                <p>Here, I presented an introduction to gradient descent, a method for optimizing certain regression models. Follow the link to watch!</p>
+                <a href="https://drive.google.com/drive/folders/1VtCAlDCIehoBcqjmKTRM7iOnN5upqrBl?usp=sharing" class="btn btn-light">Watch Me!</a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="service-item">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-flask fa-stack-1x text-success"></i>
+                </span>
+                <h4>
+                  <strong>Review Sentiments</strong>
+                </h4>
+                <p>A count vectorization assignment about movie review sentiments led to a couple neat visualizations of word frequencies.</p>
+                <a href="https://medium.com/@jamesdenney6" class="btn btn-light">Take a Look</a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="service-item">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-medium fa-stack-1x text-success"></i>
+                </span>
+                <h4>
+                  <strong>Data Science Writing</strong>
+                </h4>
+                <p>I occasionally opine on data science, and Medium is the place I like to do it. Scan through my articles</p>
+                <a href="https://medium.com/@jamesdenney6" class="btn btn-light">Go to Medium</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.row (nested) -->
+        </div>
+        <!-- /.col-lg-10 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+<!-- Callout -->
+<section id="contact">
+  <aside class="callout">
+    <div class="text-vertical-center">
+      <h1>Let's Talk! Here's How to Contact Me</h1>
+    </div>
+  </aside>
+
+<!-- Call to Action -->
+<!--<aside class="call-to-action bg-success text-white">
+  <div class="container text-center">
+    <h3>The buttons below are impossible to resist.</h3>
+    <a href="#" class="btn btn-lg btn-light">Cute puppies!</a>
+    <a href="#" class="btn btn-lg btn-dark">Silly cat videos!</a>
+  </div>
+</aside>-->
+
+<!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <h2>
+            <strong>James Denney</strong>
+          </h2>
+          <h3>General Assembly</h3>
+          <h3>1133 15th St. NW Floor 8</h3>
+          <h3>Washington, D.C. 20005</h3>
+          <ul class="list-unstyled">
+            <li>
+              <h4><i class="fa fa-phone fa-fw text-success"></i>
+              (301) 466-3165</h4></li>
+            <li>
+              <h4><i class="fa fa-envelope-o fa-fw text-success"></i>
+              <a class="text-success"  href="mailto:jamesdenney6@gmail.com">jamesdenney6@gmail.com</a></h4>
+            </li>
+          </ul>
+          <br>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/jamesrdenney">
+                <i class="fa fa-linkedin fa-fw fa-3x text-success"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.medium.com/@jamesdenney6">
+                <i class="fa fa-medium fa-fw fa-3x text-success"></i>
+              </a>
+            </li>
+          </ul>
+          <hr class="small">
+          <p class="text-muted">Copyright &copy; James Denney, 2018</p>
+          <p class="text-muted">Top photo courtesy: my fiancée, Ashley</p>
+        </div>
+      </div>
+    </div>
+    <a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
+      <i class="fa fa-chevron-up fa-fw fa-1x"></i>
+    </a>
+  </footer>
+</section>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/stylish-portfolio.js"></script>
 </body>
 
 
