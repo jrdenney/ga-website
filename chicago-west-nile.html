@@ -59,11 +59,12 @@
     <section id="project" class="about">
       <div class="container text-center">
         <h1>Chicago West Nile Project</h1>
-        <p class="lead">This project started with data from a <a href="https://www.kaggle.com/c/predict-west-nile-virus">Kaggle competition.</a> The first half of this project required my team to predict when and where specific mosquito species will test positive for the West Nile Virus. The second half of the project was to develop a treatment plan for the city of Chicago, as well as a cost-benefit analysis of that program.</p>
+        <p class="lead">This project started with data from a <a href="https://www.kaggle.com/c/predict-west-nile-virus">Kaggle competition.</a> In the first half of this project, my team created a neural network that predicted where and when specific mosquito species will test positive for the West Nile Virus. We did this by analyzing the traps in which mosquitos were caught and later tested for the West Nile virus. The data included date and time, latitude and longitude, weather data (dew points, temperatures, precipitation, etc.), whether the mosquito tested positive, the mosquito's species information, as well as rolling averages of the weather data. Four additional features, based on two distance-based metrics and two time-based metrics, were added to reflect a trap's "spray recency." (Example: was the area in a 500-meter radius of the trap sprayed within the past week?)</p>
+        <p class="lead">We train-test split the trap data (which spanned about eight years) and built a three-layer neural network using ReLU and softmax activation functions to analyze our data. The analysis showed that spray recency did not have a strong effect on West Nile prevalence, which we later factored into our virus mitigation program.</p>
+        <p class="lead">The second half of the project required the development of a treatment plan for the city of Chicago, as well as a cost-benefit analysis of that program. While spraying still figured prominently in the plans, we acknowledged that spraying's inefficiency made other methods, such as education programs and larvicide, more cost-effective and efficient at keeping the virus at bay.</p>
         <p class="lead">The PowerPoint slides and GitHub repository for this project are linked below.</p>
         <p class="lead"><a href="https://docs.google.com/presentation/d/14rGkWZSChOmPxeg5RLcs0ICxPfYgHwPW2gXMjE1_w3o/edit?usp=sharing">PowerPoint Slides</a></p>
         <p class="lead"><a href="https://github.com/jrdenney/GA-West_Nile_Team_3">GitHub Repository</a></p>
-        <p class="lead">I will undoubtedly have more to say on this later, but for now I must attend to capstone matters.</p>
       </div>
       <!-- /.container -->
     </section>
