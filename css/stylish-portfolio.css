@@ -202,6 +202,12 @@ hr.small {
 .service-item {
     margin-bottom: 30px;
 }
+.service-item h4 {
+    font-size: 2em;
+}
+.service-item p {
+    font-size: 1em;
+}
 
 
 /* Callout */
